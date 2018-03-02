@@ -24,7 +24,7 @@
           Tourist
         </label>
 
-        <input type="text" id="tourist_id" name="tourist_id" placeholder="Tourist" class="form-control" value="<%= @sign_up.tourist_id %>">
+        <%= select_tag(:tourist_id, options_from_collection_for_select(User.all, :id, :email, @sign_up.tourist_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for event_id -->
