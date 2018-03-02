@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :sign_ups,
+             :foreign_key => "tourist_id",
+             :dependent => :destroy
+
   has_many   :local_events,
              :foreign_key => "host_id",
              :dependent => :destroy
