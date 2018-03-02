@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @sign_up.errors.any? %>
+  <% @sign_up.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Sign Up</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_sign_up" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for tourist_id -->
+      <div class="form-group">
+        <label for="tourist_id" class="control-label">
+          Tourist
+        </label>
+
+        <input type="text" id="tourist_id" name="tourist_id" placeholder="Tourist" class="form-control" value="<%= @sign_up.tourist_id %>">
+      </div>
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @sign_up.event_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Sign Up
+      </button>
+      or
+      <a href="/sign_ups">Cancel</a>
+    </form>
+  </div>
+</div>
