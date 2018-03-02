@@ -10,7 +10,8 @@ class LocalEventsController < ApplicationController
   end
 
   def index
-    @local_events = LocalEvent.page(params[:page]).per(10)
+    @q = LocalEvent.ransack(params[:q])
+    @local_events = @q.result(:distinct => true).includes(:sign_ups, :host).page(params[:page]).per(10)
 
     render("local_events/index.html.erb")
   end
