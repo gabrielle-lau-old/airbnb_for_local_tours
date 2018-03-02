@@ -45,14 +45,8 @@
         <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @local_event.city %>">
       </div>
 
-      <!-- Label and input for host_id -->
-      <div class="form-group">
-        <label for="host_id" class="control-label">
-          Host
-        </label>
-
-        <%= select_tag(:host_id, options_from_collection_for_select(User.all, :id, :email, @local_event.host_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Local Event
