@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Local Event #<%= @local_event.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Event name</dt>
+      <dd><%= @local_event.event_name %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @local_event.date %></dd>
+
+      <dt>City</dt>
+      <dd><%= @local_event.city %></dd>
+
+      <dt>Host</dt>
+      <dd><%= @local_event.host_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/local_events" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/local_events/<%= @local_event.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_local_event/<%= @local_event.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
