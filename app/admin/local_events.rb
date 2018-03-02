@@ -1,4 +1,6 @@
 ActiveAdmin.register LocalEvent do
+
+ permit_params :event_name, :date, :city, :host_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
