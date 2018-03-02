@@ -17,7 +17,7 @@
       <% @sign_ups.each do |sign_up| %>
       <tr>
         <td><%= sign_up.tourist.email %></td>
-        <td><%= sign_up.event_id %></td>
+        <td><%= sign_up.event.event_name %></td>
         <td>
           <a href="/sign_ups/<%= sign_up.id %>" class="btn btn-primary">Show</a>
           <a href="/sign_ups/<%= sign_up.id %>/edit" class="btn btn-warning">Edit</a>
