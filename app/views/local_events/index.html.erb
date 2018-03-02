@@ -21,7 +21,13 @@
         <td><%= local_event.event_name %></td>
         <td><%= local_event.date %></td>
         <td><%= local_event.city %></td>
-        <td><%= local_event.host.email %></td>
+        <td>
+          <% if local_event.host.present? %>
+            <a href="/users/<%= local_event.host.id %>">
+              <%= local_event.host.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/local_events/<%= local_event.id %>" class="btn btn-primary">Show</a>
           

@@ -16,8 +16,20 @@
 
       <% @sign_ups.each do |sign_up| %>
       <tr>
-        <td><%= sign_up.tourist.email %></td>
-        <td><%= sign_up.event.event_name %></td>
+        <td>
+          <% if sign_up.tourist.present? %>
+            <a href="/users/<%= sign_up.tourist.id %>">
+              <%= sign_up.tourist.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if sign_up.event.present? %>
+            <a href="/local_events/<%= sign_up.event.id %>">
+              <%= sign_up.event.event_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/sign_ups/<%= sign_up.id %>" class="btn btn-primary">Show</a>
           <a href="/sign_ups/<%= sign_up.id %>/edit" class="btn btn-warning">Edit</a>

@@ -15,7 +15,13 @@
       <dd><%= @local_event.city %></dd>
 
       <dt>Host</dt>
-      <dd><%= @local_event.host_id %></dd>
+      <dd>
+        <% if @local_event.host.present? %>
+          <a href="/users/<%= @local_event.host_id %>">
+            <%= @local_event.host.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
