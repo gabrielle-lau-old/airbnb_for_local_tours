@@ -10,7 +10,7 @@ class LocalEventsController < ApplicationController
   end
 
   def index
-    @local_events = LocalEvent.all
+    @local_events = LocalEvent.page(params[:page]).per(10)
 
     render("local_events/index.html.erb")
   end
