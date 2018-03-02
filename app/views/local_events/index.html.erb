@@ -24,8 +24,11 @@
         <td><%= local_event.host.email %></td>
         <td>
           <a href="/local_events/<%= local_event.id %>" class="btn btn-primary">Show</a>
-          <a href="/local_events/<%= local_event.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_local_event/<%= local_event.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == local_event.host %>
+            <a href="/local_events/<%= local_event.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_local_event/<%= local_event.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

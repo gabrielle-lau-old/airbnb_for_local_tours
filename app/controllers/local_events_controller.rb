@@ -1,4 +1,14 @@
 class LocalEventsController < ApplicationController
+  before_action :current_user_must_be_local_event_host, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_local_event_host
+    local_event = LocalEvent.find(params[:id])
+
+    unless current_user == local_event.host
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @local_events = LocalEvent.all
 
