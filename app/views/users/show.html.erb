@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many local_events -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Local Events
+      </li>
+
+      <% @user.local_events.each do |local_event| %>
+        <li class="list-group-item">
+          <a href="/local_events/<%= local_event.id %>">
+            <%= local_event.event_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/local_events/<%= local_event.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/local_events/<%= local_event.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_local_event/<%= local_event.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many sign_ups -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Sign Ups
+      </li>
+
+      <% @user.sign_ups.each do |sign_up| %>
+        <li class="list-group-item">
+          <a href="/sign_ups/<%= sign_up.id %>">
+            <%= sign_up.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/sign_ups/<%= sign_up.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/sign_ups/<%= sign_up.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_sign_up/<%= sign_up.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
