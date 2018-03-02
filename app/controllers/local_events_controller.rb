@@ -16,6 +16,7 @@ class LocalEventsController < ApplicationController
   end
 
   def show
+    @sign_up = SignUp.new
     @local_event = LocalEvent.find(params[:id])
 
     render("local_events/show.html.erb")
